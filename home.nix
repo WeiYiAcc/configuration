@@ -50,6 +50,7 @@
     nodejs
     python3
     typescript
+    ruby_3_1 #添加ruby
 
     # rust stuff
     cargo-cache
