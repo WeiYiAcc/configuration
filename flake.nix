@@ -14,7 +14,7 @@
 
   inputs.nix-index-database.url = "github:Mic92/nix-index-database";
   inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
+  inputs.vscode-server.url = "github:nix-community/nixos-vscode-server";
   outputs = inputs:
     with inputs; let
       secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
@@ -80,7 +80,13 @@
         modules = [
           nixos-wsl.nixosModules.wsl
           ./wsl.nix
-        ];
-      };
+          vscode-server.nixosModules.default
+          ({ config, pkgs, ... }: {
+            services.vscode-server.enable = true;
+           })
+      ];
     };
-}
+  };
+}  
+              
+
