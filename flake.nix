@@ -14,7 +14,12 @@
 
   inputs.nix-index-database.url = "github:Mic92/nix-index-database";
   inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+  # install vscode-server
   inputs.vscode-server.url = "github:nix-community/nixos-vscode-server";
+  # install rubocop
+  inputs.bundlerEnv.url = "github:numtide/flake-utils";
+  inputs.bundler.url = "github:matthewbauer/nix-bundle";
+  
   outputs = inputs:
     with inputs; let
       secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
@@ -80,9 +85,13 @@
         modules = [
           nixos-wsl.nixosModules.wsl
           ./wsl.nix
+          #install vscode-server
           vscode-server.nixosModules.default
           ({ config, pkgs, ... }: {
             services.vscode-server.enable = true;
+          # Add Ruby package and configuration here
+          environment.systemPackages = with pkgs; [ ruby_3_1 ];
+          # OR  home.packages = with pkgs; [ ruby_3_1 ];
            })
       ];
     };
