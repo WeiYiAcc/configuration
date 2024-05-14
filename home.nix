@@ -56,7 +56,6 @@
     # rust stuff
     cargo-cache
     cargo-expand
-
     # local dev stuf
     mkcert
     httpie
@@ -112,6 +111,7 @@ in {
     [
       # pkgs.some-package
       # pkgs.unstable.some-other-package
+      pkgs.xonsh
     ];
 
   # FIXME: if you want to version your LunarVim config, add it to the root of this repo and uncomment the next line
@@ -328,5 +328,6 @@ in {
         export LANG=C.UTF-8
       '';
     };
+    
   };
 }
