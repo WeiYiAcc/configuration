@@ -92,6 +92,12 @@
     statix # nix
     sqlfluff
     tflint
+    #begin
+    pkgs.lazygit #lazygit installed
+
+
+
+    #end
   ];
 in {
   # 导入 nix-index 数据库模块
@@ -124,7 +130,6 @@ in {
     [
       # pkgs.some-package
       # pkgs.unstable.some-other-package
-      pkgs.xonsh
     ];
 
   # FIXME: 如果你想对 LunarVim 配置进行版本控制，请将其添加到此仓库的根目录并取消注释下一行
