@@ -1,5 +1,7 @@
 {
+  # 如果你想引用你的 GitHub/GitLab 访问令牌和其他秘密，请取消注释下一行
   # FIXME: uncomment the next line if you want to reference your GitHub/GitLab access tokens and other secrets
+  
   # secrets,
   config,
   pkgs,
@@ -7,6 +9,7 @@
   nix-index-database,
   ...
 }: let
+  # 定义不稳定的软件包集合
   unstable-packages = with pkgs.unstable; [
     # FIXME: select your core binaries that you always want on the bleeding-edge
     bat
@@ -36,11 +39,13 @@
     zip
   ];
 
+  # 定义稳定的软件包集合
   stable-packages = with pkgs; [
+    # FIXME: 根据你使用的语言自定义这些稳定的软件包
     # FIXME: customize these stable packages to your liking for the languages that you use
 
     # key tools
-    gh # for bootstrapping
+    gh # for bootstrapping #用于引导
     just
 
     # core languages
@@ -56,7 +61,8 @@
     # rust stuff
     cargo-cache
     cargo-expand
-    # local dev stuf
+
+    # local dev stuf # 本地开发工具
     mkcert
     httpie
 
@@ -88,44 +94,56 @@
     tflint
   ];
 in {
+  # 导入 nix-index 数据库模块
   imports = [
     nix-index-database.hmModules.nix-index
   ];
 
+  # 设置 home-manager 的状态版本
   home.stateVersion = "22.11";
 
   home = {
+    # 设置用户名
     username = "${username}";
+    # 设置用户主目录
     homeDirectory = "/home/${username}";
 
+    # 设置编辑器环境变量
     sessionVariables.EDITOR = "lvim";
-    # FIXME: set your preferred $SHELL
+    # FIXME: set your preferred $SHELL # FIXME: 设置你喜欢的 $SHELL
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
   };
 
+  # 定义 home-manager 安装的软件包
   home.packages =
     stable-packages
     ++ unstable-packages
     ++
-    # FIXME: you can add anything else that doesn't fit into the above two lists in here
+    # FIXME: 你可以在这里添加任何不属于上述两个列表的软件包
+    # FIXME: you can add anything else that doesn't fit into the above two lists in here 
     [
       # pkgs.some-package
       # pkgs.unstable.some-other-package
       pkgs.xonsh
     ];
 
+  # FIXME: 如果你想对 LunarVim 配置进行版本控制，请将其添加到此仓库的根目录并取消注释下一行
   # FIXME: if you want to version your LunarVim config, add it to the root of this repo and uncomment the next line
   # home.file.".config/lvim/config.lua".source = ./lvim_config.lua;
 
   programs = {
     home-manager.enable = true;
     nix-index.enable = true;
+    # 启用 nix-index 的 Zsh 集成
     nix-index.enableZshIntegration = true;
+    # 启用 nix-index-database 的 comma 模块
     nix-index-database.comma.enable = true;
 
+    # FIXME: 如果你不想使用 starship 提示符，请禁用它
     # FIXME: disable this if you don't want to use the starship prompt
     starship.enable = true;
-    starship.settings = {
+    # 配置 starship 提示符
+    starship.settings = {      
       aws.disabled = true;
       gcloud.disabled = true;
       kubernetes.disabled = false;
@@ -226,6 +244,7 @@ in {
         refresh = "source ${config.home.homeDirectory}/.zshrc";
         show_path = "echo $PATH | tr ':' '\n'";
 
+        # FIXME: 如果你想添加更多 git 别名，请在这里添加
         # FIXME: add more git aliases here if you want them
         gapa = "git add --patch";
         grpa = "git reset --patch";
