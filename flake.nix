@@ -86,17 +86,17 @@
           nixos-wsl.nixosModules.wsl
           ./wsl.nix
           #install vscode-server
-          vscode-server.nixosModules.default
-          ({ config, pkgs, ... }: {
-            services.vscode-server.enable = true;
+          #vscode-server.nixosModules.default
+          #({ config, pkgs, ... }: {
+          #  services.vscode-server.enable = true;
           #下列无效配置
           # Add Ruby package and configuration here
-          environment.systemPackages = with pkgs; [ ruby_3_1 ];
+          #environment.systemPackages = with pkgs; [ ruby_3_1 ];
           # OR  home.packages = with pkgs; [ ruby_3_1 ];
-           })
-      ];
+          # })
+          ];
+       };
     };
-  };
 }  
               
 
