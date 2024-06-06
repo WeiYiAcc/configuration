@@ -53,7 +53,7 @@
     go
     lua
     nodejs
-    python3
+  #  python3
     typescript
     ruby_3_1 #添加ruby
     rubocop #添加rubocop
@@ -94,8 +94,8 @@
     tflint
     #begin
     pkgs.lazygit #lazygit installed
-
-
+    #python311Packages.jupyter-core
+    jupyter
 
     #end
   ];
