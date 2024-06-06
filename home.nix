@@ -57,7 +57,7 @@
     typescript
     ruby_3_1 #添加ruby
     rubocop #添加rubocop
-    solargraph #添加solargraph
+   # solargraph #添加solargraph
     # rust stuff
     cargo-cache
     cargo-expand
