@@ -96,7 +96,8 @@
     pkgs.lazygit #lazygit installed
     #python311Packages.jupyter-core
     jupyter
-
+    bundix
+    
     #end
   ];
 in {
