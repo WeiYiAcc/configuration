@@ -37,6 +37,10 @@
     vim
     wget
     zip
+    #begin
+    solargraph
+    #end
+
   ];
 
   # 定义稳定的软件包集合
