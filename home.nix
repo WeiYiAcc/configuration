@@ -100,7 +100,7 @@
     #python311Packages.jupyter-core
     jupyter
     bundix
-#   solargraph    
+    yt-dlp
     #end
   ];
 in {
