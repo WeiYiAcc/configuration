@@ -39,6 +39,7 @@
     zip
     #begin
     solargraph
+    yt-dlp
     #end
 
   ];
@@ -100,7 +101,7 @@
     #python311Packages.jupyter-core
     jupyter
     bundix
-    yt-dlp
+    #yt-dlp
     #end
   ];
 in {
