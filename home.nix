@@ -122,7 +122,9 @@ in {
     # 设置编辑器环境变量
     sessionVariables.EDITOR = "lvim";
     # FIXME: set your preferred $SHELL # FIXME: 设置你喜欢的 $SHELL
-    sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
+    sessionVariables.SHELL= "/etc/profiles/per-user/${username}/bin/zsh";
+    sessionVariables.TZ = "Asia/Shanghai"; # CUSTOM: 设置时区为中国标准时间
+    
   };
 
   # 定义 home-manager 安装的软件包

@@ -16,9 +16,6 @@
   inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   # install vscode-server
   inputs.vscode-server.url = "github:nix-community/nixos-vscode-server";
-  # install rubocop 下列无效配置
-  # inputs.bundlerEnv.url = "github:numtide/flake-utils";
-  # inputs.bundler.url = "github:matthewbauer/nix-bundle";
   
   outputs = inputs:
     with inputs; let
@@ -89,10 +86,6 @@
           #vscode-server.nixosModules.default
           #({ config, pkgs, ... }: {
           #  services.vscode-server.enable = true;
-          #下列无效配置
-          # Add Ruby package and configuration here
-          #environment.systemPackages = with pkgs; [ ruby_3_1 ];
-          # OR  home.packages = with pkgs; [ ruby_3_1 ];
           # })
           ];
        };
