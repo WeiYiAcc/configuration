@@ -119,12 +119,14 @@ in {
     # 设置用户主目录
     homeDirectory = "/home/${username}";
 
-    # 设置编辑器环境变量
-    sessionVariables.EDITOR = "lvim";
-    # FIXME: set your preferred $SHELL # FIXME: 设置你喜欢的 $SHELL
-    sessionVariables.SHELL= "/etc/profiles/per-user/${username}/bin/zsh";
-    sessionVariables.TZ = "Asia/Shanghai"; # CUSTOM: 设置时区为中国标准时间
     
+    sessionVariables ={
+      EDITOR = "lvim"; # 设置编辑器环境变量
+      SHELL= "/etc/profiles/per-user/${username}/bin/zsh"; # FIXME: set your preferred $SHELL # FIXME: 设置你喜欢的 $SHELL
+      TZ = "Asia/Shanghai"; # CUSTOM: 设置时区为中国标准时间
+      LANG = "en_US.UTF-8"; # CUSTOM
+      PATH = "$HOME/.local/bin:$PATH";  # CUSTOM
+    };
   };
 
   # 定义 home-manager 安装的软件包
