@@ -101,7 +101,9 @@
     #python311Packages.jupyter-core
     jupyter
     bundix
+    pkgs.syncthing
     #yt-dlp
+
     #end
   ];
 in {
